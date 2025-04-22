@@ -27,6 +27,8 @@ import { UsersModule } from "./users/users.module";
 import { User } from "./users/models/user.model";
 import { UserRole } from "./users/models/user-role.model";
 import { AuthModule } from './auth/auth.module';
+import { CarCategoryModule } from './car-category/car-category.module';
+import { CarCategory } from "./car-category/models/car-category.model";
 
 
 @Module({
@@ -53,6 +55,7 @@ import { AuthModule } from './auth/auth.module';
         Role,
         User,
         UserRole,
+        CarCategory
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -71,6 +74,7 @@ import { AuthModule } from './auth/auth.module';
     RolesModule,
     UsersModule,
     AuthModule,
+    CarCategoryModule,
   ],
   controllers: [],
   providers: [],
