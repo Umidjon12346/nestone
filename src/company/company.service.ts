@@ -17,8 +17,9 @@ export class CompanyService {
   async getAllCompany(): Promise<Company[]> {
     return this.companyModel.findAll();
   }
-  async getByIdCompany(id: number): Promise<Company | null> {
-    return this.companyModel.findByPk(id);
+  async findOne(id: number) {
+    const user = await this.companyModel.findByPk(id);
+    return user;
   }
 
   async updateCompany(
@@ -39,17 +40,17 @@ export class CompanyService {
     }
     return "yoqwdsfas";
   }
-  
-  async getByName(name:string){
+
+  async getByName(name: string) {
     const getName = await this.companyModel.findOne({
       where: {
         name: {
-          [Op.iLike]: `%${name}%`, 
+          [Op.iLike]: `%${name}%`,
         },
       },
     });
     console.log(getName);
-    
-    return getName
+
+    return getName;
   }
 }

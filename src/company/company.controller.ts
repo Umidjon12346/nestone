@@ -20,9 +20,10 @@ export class CompanyController {
     return this.companyService.getAllCompany();
   }
   @Get(":id")
-  async getByIdCompany(@Param("id") id: number): Promise<Company | null> {
-    return this.companyService.getByIdCompany(+id)
+  findOne(@Param("id") id: string) {
+    return this.companyService.findOne(+id);
   }
+  
   @Patch(":id")
   async updateCompany(@Param("id") id:string,@Body() updateCompanyDto: UpdateCompanyDto): Promise<Company | null>{
       return this.companyService.updateCompany(+id,updateCompanyDto)

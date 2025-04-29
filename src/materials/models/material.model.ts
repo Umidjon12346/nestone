@@ -1,6 +1,6 @@
 import { Model, Table, Column, DataType, BelongsToMany } from "sequelize-typescript";
-import { BuildingMaterial } from "src/building_materials/models/building_material.model";
-import { Building } from "src/buildings/models/building.model";
+import { BuildingMaterial } from "../../building_materials/models/building_material.model";
+import { Building } from "../../buildings/models/building.model";
 
 interface IMaterialCreationAttr {
   name: string;

@@ -29,11 +29,17 @@ import { UserRole } from "./users/models/user-role.model";
 import { AuthModule } from './auth/auth.module';
 import { CarCategoryModule } from './car-category/car-category.module';
 import { CarCategory } from "./car-category/models/car-category.model";
+import { FileModule } from './file/file.module';
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { join } from "path";
 
 
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: ".env", isGlobal: true }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, "static"),
+    }),
     SequelizeModule.forRoot({
       dialect: "postgres",
       host: process.env.PG_HOST,
@@ -55,7 +61,7 @@ import { CarCategory } from "./car-category/models/car-category.model";
         Role,
         User,
         UserRole,
-        CarCategory
+        CarCategory,
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -75,6 +81,7 @@ import { CarCategory } from "./car-category/models/car-category.model";
     UsersModule,
     AuthModule,
     CarCategoryModule,
+    FileModule,
   ],
   controllers: [],
   providers: [],

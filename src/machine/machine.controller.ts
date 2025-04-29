@@ -1,15 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { MachineService } from './machine.service';
 import { CreateMachineDto } from './dto/create-machine.dto';
 import { UpdateMachineDto } from './dto/update-machine.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('machine')
 export class MachineController {
   constructor(private readonly machineService: MachineService) {}
 
   @Post()
-  create(@Body() createMachineDto: CreateMachineDto) {
-    return this.machineService.create(createMachineDto);
+  @UseInterceptors(FileInterceptor("image"))
+  create(@Body() createMachineDto: CreateMachineDto,@UploadedFile() image:any) {
+    console.log(image);
+    console.log(createMachineDto);
+    
+    return this.machineService.create(createMachineDto,image);
   }
 
   @Get()

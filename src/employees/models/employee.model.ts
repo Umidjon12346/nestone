@@ -7,9 +7,9 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { BuildingEmployee } from "src/building_employees/models/building_employee.model";
-import { Building } from "src/buildings/models/building.model";
-import { Company } from "src/company/models/company.model";
+import { BuildingEmployee } from "../../building_employees/models/building_employee.model";
+import { Building } from "../../buildings/models/building.model";
+import { Company } from "../../company/models/company.model";
 
 interface IEmployeeCreationAttr {
   full_name: string;

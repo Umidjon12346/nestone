@@ -6,8 +6,8 @@ import {
   ForeignKey,
   BelongsTo,
 } from "sequelize-typescript";
-import { Building } from "src/buildings/models/building.model";
-import { Employee } from "src/employees/models/employee.model";
+import { Building } from "../../buildings/models/building.model";
+import { Employee } from "../../employees/models/employee.model";
 
 interface IBuildingEmployeeCreationAttr {
   buildingId: number;

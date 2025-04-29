@@ -5,8 +5,9 @@ import {
   DataType,
   BelongsToMany,
 } from "sequelize-typescript";
-import { Role } from "src/roles/models/role.model";
+import { Role } from "../../roles/models/role.model";
 import { UserRole } from "./user-role.model";
+import { ApiProperty } from "@nestjs/swagger";
 
 interface IUSerCreationAttr {
   name: string;
@@ -16,6 +17,10 @@ interface IUSerCreationAttr {
 
 @Table({ tableName: "users" })
 export class User extends Model<User, IUSerCreationAttr> {
+  @ApiProperty({
+    example: "User1",
+    description: "user ismi",
+  })
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,

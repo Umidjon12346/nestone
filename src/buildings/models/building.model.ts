@@ -5,10 +5,10 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
-import { BuildingEmployee } from "src/building_employees/models/building_employee.model";
-import { BuildingMaterial } from "src/building_materials/models/building_material.model";
-import { Employee } from "src/employees/models/employee.model";
-import { Material } from "src/materials/models/material.model";
+import { BuildingEmployee } from "../../building_employees/models/building_employee.model";
+import { BuildingMaterial } from "../../building_materials/models/building_material.model";
+import { Employee } from "../../employees/models/employee.model";
+import { Material } from "../../materials/models/material.model";
 
 interface IBuildingCreationAttr {
   name: string;
